@@ -1,5 +1,5 @@
 import 'dart:math';
-import 'package:chad_bmi_calulator/bmi.dart';
+import 'package:chad_bmi_calulator/ui/bmiResult.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

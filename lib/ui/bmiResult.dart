@@ -1,4 +1,3 @@
-import 'package:chad_bmi_calulator/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
