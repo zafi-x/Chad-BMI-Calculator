@@ -3,6 +3,7 @@ import 'package:chad_bmi_calulator/ui/bmiResult.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:item_count_number_button/item_count_number_button.dart';
 
 class HomePageScreen extends StatefulWidget {
@@ -22,13 +23,16 @@ class _HomePageScreenState extends State<HomePageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 189, 205, 213),
+      backgroundColor: const Color.fromARGB(255, 227, 242, 253),
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 175, 190, 197),
+        backgroundColor: const Color.fromARGB(255, 227, 242, 253),
         title: Text(
           'BMI Calculator',
-          style:
-              TextStyle(fontSize: 30.sp, color: Colors.black, letterSpacing: 1),
+          style: GoogleFonts.montserrat(
+              fontSize: 30.sp,
+              color: Colors.black,
+              letterSpacing: 1,
+              fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
       ),
@@ -43,7 +47,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
               height: 120.h,
               width: double.infinity.w,
               decoration: BoxDecoration(
-                color: Colors.blueGrey[400],
+                color: Color.fromARGB(255, 144, 202, 249),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Row(
@@ -54,24 +58,20 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       SizedBox(
                         height: 8.h,
                       ),
-                      IconButton(
-                        iconSize: 66,
-                        onPressed: () {
-                          setState(() {
-                            _selectedGender = 0;
-                          });
-                        },
-                        icon: Icon(
+                      Container(
+                        child: Icon(
                           Icons.male,
                           color: _selectedGender == 0
                               ? Colors.blue[300]
                               : Colors.black,
                         ),
                       ),
-                      const Text(
+                      Text(
                         'Male',
-                        style: TextStyle(
-                            fontSize: 21, fontWeight: FontWeight.w600),
+                        style: GoogleFonts.lato(
+                            fontSize: 21,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.black),
                       ),
                     ],
                   ),
@@ -96,10 +96,12 @@ class _HomePageScreenState extends State<HomePageScreen> {
                               : Colors.black,
                         ),
                       ),
-                      const Text(
+                      Text(
                         'Female',
-                        style: TextStyle(
-                            fontSize: 21, fontWeight: FontWeight.w600),
+                        style: GoogleFonts.lato(
+                            fontSize: 21,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.black),
                       ),
                     ],
                   ),
@@ -121,12 +123,11 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 child: Column(
                   children: [
                     Text(
-                      'Hight',
-                      style: TextStyle(
-                        fontSize: 30.sp,
-                        color: Colors.black,
-                        // fontWeight: FontWeight.w300
-                      ),
+                      "Height",
+                      style: GoogleFonts.lato(
+                          fontSize: 30.sp,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w700),
                     ),
                     SizedBox(
                       height: 10.h,
@@ -147,11 +148,10 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     ),
                     Text(
                       '$_height cm',
-                      style: TextStyle(
-                        fontSize: 23.sp,
-                        color: Colors.black,
-                        // fontWeight: FontWeight.w300
-                      ),
+                      style: GoogleFonts.nunito(
+                          fontSize: 23.sp,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -177,11 +177,10 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       children: [
                         Text(
                           'Weight',
-                          style: TextStyle(
-                            fontSize: 25.sp,
-                            color: Colors.black,
-                            // fontWeight: FontWeight.w300
-                          ),
+                          style: GoogleFonts.lato(
+                              fontSize: 25.sp,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w700),
                         ),
                         SizedBox(
                           height: 8.h,
@@ -190,9 +189,8 @@ class _HomePageScreenState extends State<HomePageScreen> {
                             color: const Color.fromARGB(255, 91, 112, 124),
                             buttonSizeHeight: 35,
                             buttonSizeWidth: 40,
-                            textStyle: TextStyle(
-                              fontSize: 18.sp,
-                            ),
+                            textStyle: GoogleFonts.nunito(
+                                fontSize: 18.sp, fontWeight: FontWeight.bold),
                             initialValue: _weight,
                             minValue: 40,
                             maxValue: 350,
@@ -221,11 +219,10 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       children: [
                         Text(
                           'Age',
-                          style: TextStyle(
-                            fontSize: 25.sp,
-                            color: Colors.black,
-                            // fontWeight: FontWeight.w300
-                          ),
+                          style: GoogleFonts.lato(
+                              fontSize: 25.sp,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w700),
                         ),
                         SizedBox(
                           height: 8.h,
@@ -234,9 +231,8 @@ class _HomePageScreenState extends State<HomePageScreen> {
                             color: const Color.fromARGB(255, 91, 112, 124),
                             buttonSizeHeight: 35,
                             buttonSizeWidth: 40,
-                            textStyle: TextStyle(
-                              fontSize: 18.sp,
-                            ),
+                            textStyle: GoogleFonts.nunito(
+                                fontSize: 18.sp, fontWeight: FontWeight.bold),
                             initialValue: _age,
                             minValue: 10,
                             maxValue: 100,
@@ -278,7 +274,10 @@ class _HomePageScreenState extends State<HomePageScreen> {
               ),
               child: Text(
                 "View BMI Result",
-                style: TextStyle(fontSize: 25.sp, color: Colors.black),
+                style: GoogleFonts.lato(
+                    fontSize: 25.sp,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold),
               ),
             ),
           ],

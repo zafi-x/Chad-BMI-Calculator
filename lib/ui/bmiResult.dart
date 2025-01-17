@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ResultScreen extends StatelessWidget {
   final double bmi;
@@ -24,8 +25,11 @@ class ResultScreen extends StatelessWidget {
         backgroundColor: const Color.fromARGB(255, 175, 190, 197),
         title: Text(
           "BMI Result",
-          style:
-              TextStyle(fontSize: 30.sp, color: Colors.black, letterSpacing: 1),
+          style: GoogleFonts.montserrat(
+              fontSize: 30.sp,
+              color: Colors.black,
+              letterSpacing: 1,
+              fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
       ),
@@ -44,7 +48,7 @@ class ResultScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(12.0),
                   child: Text(
                     "Your BMI is ${bmi.toStringAsFixed(1)}",
-                    style: TextStyle(
+                    style: GoogleFonts.lato(
                         fontSize: 25.sp,
                         color: Colors.black,
                         fontWeight: FontWeight.bold),
@@ -61,7 +65,7 @@ class ResultScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(12.0),
                   child: Text(
                     "Category: ${getBMICategory()}",
-                    style: TextStyle(
+                    style: GoogleFonts.lato(
                         fontSize: 23.sp,
                         fontWeight: FontWeight.bold,
                         color: Colors.black),
@@ -80,7 +84,7 @@ class ResultScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(12.0),
                   child: Text(
                     "Go Back",
-                    style: TextStyle(
+                    style: GoogleFonts.lato(
                         fontSize: 20.sp,
                         fontWeight: FontWeight.bold,
                         color: Colors.black),
