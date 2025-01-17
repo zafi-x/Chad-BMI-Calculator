@@ -1,5 +1,7 @@
 import 'dart:math';
+import 'package:chad_bmi_calulator/bmi.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:item_count_number_button/item_count_number_button.dart';
 
@@ -14,7 +16,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
   int _selectedGender = 0;
   int _height = 170;
   int _weight = 40;
-  int _age = 1;
+  int _age = 10;
   double _bmi = 0;
 
   @override
@@ -30,25 +32,12 @@ class _HomePageScreenState extends State<HomePageScreen> {
         ),
         centerTitle: true,
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color.fromARGB(255, 175, 190, 197),
-        foregroundColor: const Color.fromARGB(255, 60, 76, 85),
-        onPressed: () {
-          setState(() {
-            _bmi = _weight / pow(_height / 100, 2);
-          });
-        },
-        child: Icon(
-          Icons.calculate,
-          size: 33.sp,
-        ),
-      ),
       body: Padding(
         padding: EdgeInsets.all(12.0.r),
         child: Column(
           children: [
             SizedBox(
-              height: 25.h,
+              height: 30.h,
             ),
             Container(
               height: 120.h,
@@ -79,7 +68,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                               : Colors.black,
                         ),
                       ),
-                      Text(
+                      const Text(
                         'Male',
                         style: TextStyle(
                             fontSize: 21, fontWeight: FontWeight.w600),
@@ -107,7 +96,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                               : Colors.black,
                         ),
                       ),
-                      Text(
+                      const Text(
                         'Female',
                         style: TextStyle(
                             fontSize: 21, fontWeight: FontWeight.w600),
@@ -118,7 +107,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
               ),
             ),
             SizedBox(
-              height: 37.h,
+              height: 50.h,
             ),
             Container(
               height: 120.h,
@@ -169,7 +158,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
               ),
             ),
             SizedBox(
-              height: 37.h,
+              height: 50.h,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -249,7 +238,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                               fontSize: 18.sp,
                             ),
                             initialValue: _age,
-                            minValue: 1,
+                            minValue: 10,
                             maxValue: 100,
                             onChanged: (value) {
                               setState(
@@ -266,27 +255,32 @@ class _HomePageScreenState extends State<HomePageScreen> {
               ],
             ),
             SizedBox(
-              height: 37.h,
+              height: 50.h,
             ),
-            Container(
-              // height: 100.h,
-              // width: double.infinity.w,
-              decoration: BoxDecoration(
-                color: Colors.blueGrey[400],
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Text(
-                  'BMI: ${_bmi.toStringAsFixed(1)}',
-                  style: TextStyle(
-                    fontSize: 25.sp,
-                    color: Colors.black,
-                    // fontWeight: FontWeight.w300
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  _bmi = _weight / pow(_height / 100, 2);
+                });
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ResultScreen(bmi: _bmi),
                   ),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
                 ),
+                backgroundColor: Colors.blueGrey[400],
               ),
-            )
+              child: Text(
+                "View BMI Result",
+                style: TextStyle(fontSize: 25.sp, color: Colors.black),
+              ),
+            ),
           ],
         ),
       ),
